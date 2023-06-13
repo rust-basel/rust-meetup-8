@@ -39,7 +39,7 @@ cargo add serde --features derive
 
 ```sh
 rustup update # Updates rust version (rustc)
-rustup toolchain add aarch64-apple-ios # Adds arm64 apple iOS toolchain
+rustup target add aarch64-apple-ios # Adds arm64 apple iOS toolchain
 cargo build --release --target aarch64-apple-ios # Builds a release version for apple iOS arm64
 ```
 
@@ -49,7 +49,7 @@ Linter and formatter
 
 ```sh
 cargo clippy
-(rustfmt)
+cargo fmt
 ```
 
 ----
