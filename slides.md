@@ -155,7 +155,7 @@ pub trait MakeSound {
 }
 
 impl MakeSound for Dog {
-  fn make_sound(&self){
+  fn make_sound(&self) -> String {
     self.bark()
   }
 }
@@ -163,7 +163,7 @@ impl MakeSound for Dog {
 
 ```rust
 impl MakeSound for Cat {
-  fn make_sound(&self){
+  fn make_sound(&self) -> String {
     self.miauw()
   }
 }
