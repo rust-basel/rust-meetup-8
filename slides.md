@@ -195,3 +195,55 @@ Dynamic Polymorphism
 let sound_makers: Vec<Box<dyn MakeSound>> = 
         vec[Box::new(Dog::new()), Box::new(Cat::new())];
 ```
+
+---
+## Enums, matches & errors
+Enums
+```rust
+// that's an ADT/sum type!
+enum TrafficLight {
+  Green, Yellow, Red, // unit variants
+  YellowBlinking(u32), // tuple variant
+  OutOfService {description: String}, // struct-like variant
+}
+```
+----
+Pattern Matching
+```rust
+// this tests for exhaustive patterns!
+match traffic_light {
+  Green => drive(),
+  Yellow => check_situation_and_decide(),
+  Red => stop(),
+  YellowBlinking(frequency) => check_situation_and_decide(),
+  OutOfService{description} =>  match description {
+    String::from("Alien Attack") => drive_like_hell(),
+    _ => check_situation_and_decide(),
+  }
+}
+```
+
+----
+
+Error Handling
+```rust
+enum Result<T, E> {
+   Ok(T),
+   Err(E),
+}
+```
+```rust
+panic!(); //terminates the program
+panic!("this is a terrible mistake!");
+```
+----
+
+Error Handling: The '?' operator:
+```rust
+// syntactic sugar for match that propagates error types
+fn parse(str: &str) -> Result<(), String> {
+    let num = _parse(str)?;
+    println!("{}", num);
+    Ok(())
+}
+```
