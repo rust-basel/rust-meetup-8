@@ -74,23 +74,72 @@ IDEs
 
 - VSCode:
   - rust-analyzer
-  - CodeLLDB (Linux) / MSVC Debug tools (Windows)
+  - CodeLLDB (Linux/Mac) / MSVC Debug tools (Windows)
 
 - CLion (JetBrains):
   - Rust-Plugin
 
+---
+
+`It's your turn!`
+
+Fire up your terminal and create your first rust project
+
+```sh
+mkdir my-rust-project
+cd my-rust-project
+cargo init
+cargo run
+```
+
+----
+
+```
+my-rust-project/
+├─ src/
+│  ├─ main.rs (lib.rs) #main entry point
+├─ target/ #build dir
+│  ├─ debug/
+├─ .gitignore
+├─ Cargo.lock
+├─ Cargo.toml #your manifest
+```
+
+----
+
+Add a dependency - and look into the `Cargo.toml`
+
+```sh
+cargo add axum
+```
+
+----
+
+```toml
+[package]
+name = "my-rust-project"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies] # lands iny our production code
+axum = "0.6.18"
+
+[dev-dependencies] # dependencies for e.g. testing
+```
+
+More on [manfifests](https://doc.rust-lang.org/cargo/reference/manifest.html).
 
 ---
 
 ## Functions/Methods
 
 ```rust
-pub fn sum(first: i32, second: i32) -> i32 {
+fn sum(first: i32, second: i32) -> i32 {
   first + second
 }
-```
 
-```rust
 fn main() {
   let calculation = sum(1, 2);
   assert_eq!(calculation, 3);
@@ -114,7 +163,7 @@ fn pet(dog: &mut Dog) {
 ----
 
 ```rust
-let items: Vec<i32> = vec[6, 4, 2, 4];
+let items: Vec<i32> = vec![6, 4, 2, 4];
 let filtered_items: Vec<&i32> = items
   .iter()
   .filter(|it| *it > 4)
