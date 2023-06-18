@@ -90,6 +90,13 @@ pub fn sum(first: i32, second: i32) -> i32 {
 }
 ```
 
+```rust
+fn main() {
+  let calculation = sum(1, 2);
+  assert_eq!(calculation, 3);
+}
+```
+
 ----
 
 ```rust
@@ -118,7 +125,7 @@ assert_eq(filtered_items, vec[&6]);
 
 ---
 
-## Classes
+## Structs
 
 ```rust
 pub struct Dog {
@@ -140,14 +147,18 @@ impl Dog {
 ----
 
 ```rust
-let dog = Dog::new() // "static function"
-dog.bark(); // method (read only)
-dog.set_happy(); // method (mutates objects)
+let dog = Dog::new()
+dog.bark();
+```
+
+```rust
+let mut dog = Dog::new()
+dog.set_happy(); // <-- mutates dog
 ```
 
 ---
 
-## Interfaces
+## Traits
 
 ```rust
 pub trait MakeSound {
