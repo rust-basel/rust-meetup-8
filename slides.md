@@ -246,6 +246,53 @@ let sound_makers: Vec<Box<dyn MakeSound>> =
 ```
 
 ---
+
+Memory - Moves
+
+```rust
+let a = S(1);
+```
+
+![alt text](images/memory_allocated.svg "Allocated memory")
+
+```rust
+let b = a;
+```
+
+![alt text](images/memory_moved.svg "Moved memory")
+
+----
+
+Memory - References
+
+![alt text](images/memory_referenced.svg "referenced memory")
+
+```rust
+let b = S(1);
+let a: &S = &b;
+```
+
+----
+
+LifeTimes
+
+```rust
+{ 
+    let mut c = S(2);
+    c = S(3);  // <- Drop called on `c` before assignment.
+    let t = S(1);
+    let a = t;
+    {
+       let x: Box<i32> = Box::new(5)
+    } // <- Scope of `x` ends - i32 on heap freed.
+}   // <- Scope of `a`, `t`, `c` ends here, drop called on `a`, `c`.
+```
+
+- LOC between creation - usage - and dropping
+- Reference to address needs to live "shorter", than the value it points to
+- References are never invalid
+
+---
 ## Enums, matches & errors
 Enums
 ```rust
