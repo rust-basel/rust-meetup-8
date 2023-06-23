@@ -322,9 +322,22 @@ LifeTimes
 }   // <- Scope of `a`, `t`, `c` ends here, drop called on `a`, `c`.
 ```
 
-- LOC between creation - usage - and dropping
-- Reference to address needs to live "shorter", than the value it points to
-- References are never invalid
+----
+
+Borrowing (References)
+```rust
+{
+    let x: i32 = 5;
+    let s: &i32 = &h; // ok - reference (borrow) lives shorter
+} // <- Drop called on 's', then 'x'
+```
+
+```rust
+// Borrowed dog lives at least os long it used in this 
+// function. This "duration" is called 'a.
+fn borrow(borrowed: &Dog){...}
+fn borrow<'a>(borrowed: &'a Dog){...}
+```
 
 ---
 ## Enums, matches & errors
