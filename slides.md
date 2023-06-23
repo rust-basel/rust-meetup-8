@@ -133,8 +133,9 @@ More on [manfifests](https://doc.rust-lang.org/cargo/reference/manifest.html).
 
 ---
 
-## Functions/Methods
+## Functions
 
+Free functions
 ```rust
 fn sum(first: i32, second: i32) -> i32 {
   first + second
@@ -148,6 +149,7 @@ fn main() {
 
 ----
 
+Methods - oop
 ```rust
 fn make_sound(dog: &Dog) -> String {
   dog.bark()
@@ -162,11 +164,12 @@ fn pet(dog: &mut Dog) {
 
 ----
 
+methods - functional
 ```rust
 let items: Vec<i32> = vec![6, 4, 2, 4];
 let filtered_items: Vec<&i32> = items
   .iter()
-  .filter(|it| *it > 4)
+  .filter(|it| *it > 4) // "combinators"
   .collect();
 
 assert_eq(filtered_items, vec[&6]);
@@ -175,6 +178,8 @@ assert_eq(filtered_items, vec[&6]);
 ---
 
 ## Structs
+
+Definition with Impl Block
 
 ```rust
 pub struct Dog {
@@ -196,16 +201,20 @@ impl Dog {
 
 ----
 
+Invocation
+
 ```rust
-let dog = Dog::new();
+let dog = Dog{is_happy: false}; // <- directly
 dog.bark();
-let mut dog = Dog::new()
+let mut dog = Dog::new() // <- factory function
 dog.set_happy(); // <-- mutates dog
 ```
 
 ---
 
 ## Traits
+
+Impl Blocks
 
 ```rust
 pub trait MakeSound {
@@ -229,7 +238,7 @@ impl MakeSound for Cat {
 
 ----
 
-Static Polymorphism
+Polymorphism (static)
 ```rust
 struct Record(String);
 pub fn record_sound<T: MakeSound>(sound_maker: &T) -> Record {
@@ -237,7 +246,7 @@ pub fn record_sound<T: MakeSound>(sound_maker: &T) -> Record {
 }
 ```
 
-Dynamic Polymorphism
+Polymorphism (dynamic)
 ```rust
 let sound_makers: Vec<Box<dyn MakeSound>> = 
         vec[Box::new(Dog::new()), Box::new(Cat::new())];
@@ -245,7 +254,7 @@ let sound_makers: Vec<Box<dyn MakeSound>> =
 
 ----
 
-Trait **auto-implementation**
+Trait **auto-implementation** with derive macros
 ```rust
 #[derive(serde::Serialize, serde::Deserialize)]
 struct Dog {
@@ -280,8 +289,8 @@ git clone git@github.com:rust-basel/traits.git
 ```
 
 ---
-
-Memory - Moves
+## Memory
+Moves
 
 ```rust
 let a = S(1);
@@ -297,7 +306,7 @@ let b = a;
 
 ----
 
-Memory - References
+References
 
 ![alt text](images/memory_referenced.svg "referenced memory")
 
@@ -308,8 +317,8 @@ let a: &S = &b;
 
 ----
 
-LifeTimes
-
+## LifeTimes
+Scopes
 ```rust
 { 
     let mut c = S(2);
