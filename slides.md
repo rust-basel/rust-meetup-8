@@ -81,7 +81,7 @@ IDEs
 
 ---
 
-`It's your turn!`
+`It's your turn! #1`
 
 Fire up your terminal and create your first rust project
 
@@ -268,6 +268,17 @@ let json = serde_json::to_string(&dog);
   "dog_keeper" : "Alice"
 }
 ```
+
+---
+
+`It's your turn! #2`
+
+Try to solve the mistakes of the reckless developer:
+
+```sh
+git clone git@github.com:rust-basel/traits.git
+```
+
 ---
 
 Memory - Moves
