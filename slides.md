@@ -192,15 +192,13 @@ impl Dog {
     self.is_happy = true;
   }
 }
+```
 
 ----
 
 ```rust
-let dog = Dog::new()
+let dog = Dog::new();
 dog.bark();
-```
-
-```rust
 let mut dog = Dog::new()
 dog.set_happy(); // <-- mutates dog
 ```
@@ -245,6 +243,31 @@ let sound_makers: Vec<Box<dyn MakeSound>> =
         vec[Box::new(Dog::new()), Box::new(Cat::new())];
 ```
 
+----
+
+Trait **auto-implementation**
+```rust
+#[derive(serde::Serialize, serde::Deserialize)]
+struct Dog {
+  age: i32,
+  name: String,
+  dog_keeper: String,
+}
+let dog = Dog{
+    age: 1, 
+    name: "Kevin".to_string(), 
+    dog_keeper: "Alice".to_string()
+};
+let json = serde_json::to_string(&dog);
+```
+
+```json
+{
+  "age" : 1,
+  "name" : "Kevin",
+  "dog_keeper" : "Alice"
+}
+```
 ---
 
 Memory - Moves
