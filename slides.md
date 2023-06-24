@@ -5,7 +5,25 @@ revealOptions:
   highlight-theme: 'github'
 ---
 
-# Rust Essentials #1
+Thanks to the sponsor
+
+![alt text](images/E+H_logo.svg "E+H")
+
+---
+
+## Agenda
+
+Lectures: (10:00-12:30)
+- Tooling
+- Functions & Structs
+- Traits
+- Memory & Lifetimes
+- Enums, matches & errors
+
+----
+
+Workshop: (13:30-17:00)
+- Axum Pokedex
 
 ---
 
