@@ -470,6 +470,6 @@ fn parse(str: &str) -> Result<(), String> {
 
 ## Pokedex
 
-![pokedex](images/Pokedex_DP.png)
+<img src="images/Pokedex_DP.png" alt="drawing" width="400"/>
 
-src: `https://www.gamefm.com.br/wp-content/uploads/2012/12/Pokedex_DP.png`
+[src](https://www.gamefm.com.br/wp-content/uploads/2012/12/Pokedex_DP.png)
