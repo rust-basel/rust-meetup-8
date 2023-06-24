@@ -465,3 +465,63 @@ fn parse(str: &str) -> Result<(), String> {
     Ok(())
 }
 ```
+
+---
+
+## Pokédex
+
+<img src="images/Pokedex_DP.png" alt="drawing" width="400"/>
+
+[src](https://www.gamefm.com.br/wp-content/uploads/2012/12/Pokedex_DP.png)
+
+----
+
+## Challenge
+
+A webserver offering `create`, `read`, `update`, `delete` endpoints for Pokémon:
+
+----
+
+### Endpoints (CRUD)
+- To create a Pokémon `POST /pokemon`
+- To read a Pokémon `GET /pokemon/{id}` 
+- To update an existing Pokémon `PATCH /pokemon/{id}`
+- To delete a Pokémon `DELETE /pokemon/{id}`
+
+----
+
+## A Pokémon
+
+<img src="images/balbasaur.png" alt="drawing" width="200" align="left"/>[img-src](https://www.pokemon.com/us/pokedex/bulbasaur)
+
+```json
+{
+  "name" : "Balbasaur",
+  "nick_name": "Hasso",
+  "number" : 1,
+  "type": "Grass"
+}
+```
+
+<img src="images/blastoise.png" alt="drawing" width="200" align="left"/>[img-src](https://www.pokemon.com/us/pokedex/blastoise)
+
+```json
+{
+  "name" : "Blastoise",
+  "nick_name": "Blaster",
+  "number" : 9,
+  "type": "Water"
+}
+```
+
+----
+
+## How to proceed
+
+```sh
+git clone git@github.com:rust-basel/axum-pokedex-starter.git
+```
+- You will find a postman test suite there, which tests your server
+- There exists a sample route already implemented
+- If you have any questions, ask Roland or Yasin
+- (At best - go together as 2-3)
