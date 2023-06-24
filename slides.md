@@ -465,3 +465,11 @@ fn parse(str: &str) -> Result<(), String> {
     Ok(())
 }
 ```
+
+---
+
+## Pokedex
+
+![pokedex](images/Pokedex_DP.png)
+
+src: `https://www.gamefm.com.br/wp-content/uploads/2012/12/Pokedex_DP.png`
