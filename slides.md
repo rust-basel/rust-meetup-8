@@ -246,6 +246,8 @@ pub fn record_sound<T: MakeSound>(sound_maker: &T) -> Record {
 }
 ```
 
+----
+
 Polymorphism (dynamic)
 ```rust
 let sound_makers: Vec<Box<dyn MakeSound>> = 
