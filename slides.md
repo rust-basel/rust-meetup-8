@@ -16,6 +16,7 @@ Thanks to the sponsor
 Lectures: (10:00-12:30)
 - Tooling
 - Functions & Structs
+- Branching & Looping
 - Traits
 - Memory & Lifetimes
 - Enums, matches & errors
@@ -141,7 +142,7 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
-[dependencies] # lands iny our production code
+[dependencies] # lands in your production code
 axum = "0.6.18"
 
 [dev-dependencies] # dependencies for e.g. testing
@@ -224,8 +225,53 @@ Invocation
 ```rust
 let dog = Dog{is_happy: false}; // <- directly
 dog.bark();
-let mut dog = Dog::new() // <- factory function
+let mut dog = Dog::new(); // <- factory function
 dog.set_happy(); // <-- mutates dog
+```
+---
+
+## Branching & Looping
+
+Branching
+
+```rust
+let dog_is_happy = true;
+if dog_is_happy {
+} else {}
+
+match dog_is_happy {
+    true => {...},
+    false => {...}
+}
+
+let maybe_dog: Option<Dog> = Some(Dog);
+if let Some(dog) = maybe_there {
+}
+```
+
+----
+
+Looping
+
+```rust
+loop { // endless loop
+  break;
+}
+while dog_is_happy { // while - condition
+}
+while let Some(dog) = maybe_dog { // while - expression
+}
+```
+
+----
+
+Looping with containers (Iterators)
+```rust
+let items: Vec<i32> = vec![1,2,3,4];
+
+for item in items {}; // for - elems
+for i in 0..items.len(){}; // for - ranges
+items.iter().for_each(|item| {}); // <- combinators
 ```
 
 ---
