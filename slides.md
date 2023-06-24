@@ -482,7 +482,7 @@ A webserver offering `create`, `read`, `update`, `delete` endpoints for Pokémon
 
 ----
 
-### Endpoints
+### Endpoints (CRUD)
 - To create a Pokémon `POST /pokemon`
 - To read a Pokémon `GET /pokemon/{id}` 
 - To update an existing Pokémon `PATCH /pokemon/{id}`
@@ -497,6 +497,7 @@ A webserver offering `create`, `read`, `update`, `delete` endpoints for Pokémon
 ```json
 {
   "name" : "Balbasaur",
+  "nick_name": "Hasso",
   "number" : 1,
   "type": "Grass"
 }
@@ -507,7 +508,20 @@ A webserver offering `create`, `read`, `update`, `delete` endpoints for Pokémon
 ```json
 {
   "name" : "Blastoise",
+  "nick_name": "Blaster",
   "number" : 9,
   "type": "Water"
 }
 ```
+
+----
+
+## How to proceed
+
+```sh
+git clone git@github.com:rust-basel/axum-pokedex-starter.git
+```
+- You will find a postman test suite there, which tests your server
+- There exists a sample route already implemented
+- If you have any questions, ask Roland or Yasin
+- (At best - go together as 2-3)
