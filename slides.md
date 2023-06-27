@@ -398,7 +398,7 @@ let a: &S = &b;
 
 ----
 
-## LifeTimes
+## A bit of LifeTimes
 Scopes
 ```rust
 { 
@@ -415,18 +415,17 @@ Scopes
 ----
 
 Borrowing (References)
-```rust
-{
-    let x: i32 = 5;
-    let s: &i32 = &h; // ok - reference (borrow) lives shorter
-} // <- Drop called on 's', then 'x'
-```
 
 ```rust
 // Borrowed dog lives at least os long it used in this 
 // function. This "duration" is called 'a.
-fn borrow(borrowed: &Dog){...}
-fn borrow<'a>(borrowed: &'a Dog){...}
+// The compiler will hide the lifetime from you, till it cannot anymore.
+fn borrow(borrowed: &Dog) { ... }
+fn borrow<'a>(borrowed: &'a Dog) { ... }
+
+// borrowed Dog lives as long as its usage - everywhere
+// E.g.: database
+fn borrow(borrowed: &'static Dog) { ... }
 ```
 
 ---
