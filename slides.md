@@ -194,6 +194,21 @@ let filtered_items: Vec<&i32> = items
 assert_eq(filtered_items, vec[&6]);
 ```
 
+----
+
+functions - async
+
+```rust
+async fn do_something_with(a: String){
+  println!("{a}");
+}
+
+#[tokio::main] // <- an async runtime
+async fn main(){
+  do_something_with().await;
+}
+```
+
 ---
 
 ## Structs
