@@ -417,9 +417,10 @@ Scopes
 Borrowing (References)
 
 ```rust
-// Borrowed dog lives at least os long it used in this 
-// function. This "duration" is called 'a.
-// The compiler will hide the lifetime from you, till it cannot anymore.
+// Borrowed dog lives at least as long as it used in this 
+// function. This usage "duration" is called 'a.
+// The compiler will hide the lifetime from you as much as it can.
+// But sometimes you will have to annotate the lifetime.
 fn borrow(borrowed: &Dog) { ... }
 fn borrow<'a>(borrowed: &'a Dog) { ... }
 
