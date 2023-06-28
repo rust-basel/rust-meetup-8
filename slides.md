@@ -330,7 +330,7 @@ pub fn record_sound<T: MakeSound>(sound_maker: &T) -> Record {
 Polymorphism (dynamic)
 ```rust
 let sound_makers: Vec<Box<dyn MakeSound>> = 
-        vec[Box::new(Dog::new()), Box::new(Cat::new())];
+        vec![Box::new(Dog::new()), Box::new(Cat::new())];
 ```
 
 ----
@@ -420,7 +420,7 @@ Borrowing (References)
 // Borrowed dog lives at least as long as it used in this 
 // function. This usage "duration" is called 'a.
 // The compiler will hide the lifetime from you as much as it can.
-// But sometimes you will have to annotate the lifetime.
+// But sometime you will have to annotate the lifetime.
 fn borrow(borrowed: &Dog) { ... }
 fn borrow<'a>(borrowed: &'a Dog) { ... }
 
