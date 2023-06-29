@@ -209,6 +209,18 @@ async fn main(){
 }
 ```
 
+----
+
+closures
+
+```rust
+    let outer_var = 42;
+    
+    // A regular function can't refer to variables in the enclosing environment
+    let closure_annotated = |i: i32| -> i32 { i + outer_var };
+    let closure_inferred  = |i     |          i + outer_var  ;
+```
+
 ---
 
 ## Structs
@@ -438,6 +450,11 @@ enum TrafficLight {
   Green, Yellow, Red, // unit variants
   YellowBlinking(u32), // tuple variant
   OutOfService {description: String}, // struct-like variant
+}
+
+enum Option<T> {
+  Some(T),
+  None
 }
 ```
 ----
