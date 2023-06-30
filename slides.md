@@ -441,6 +441,24 @@ fn borrow<'a>(borrowed: &'a Dog) { ... }
 fn borrow(borrowed: &'static Dog) { ... }
 ```
 
+----
+
+Borrow checker
+```rust
+let foo = String::from("foo");
+let bar = String::from("bar");
+
+// you an either have many readonly references
+let foo_readonly_ref = &foo;
+let foo_readonly_ref_2 = &foo;
+
+// or one mutable reference
+let mut bar_mut_ref = &bar;
+
+// the borrow checker enforces this at compile time
+// The borrow checker also works with fat pointer (not covered here)
+```
+
 ---
 ## Enums, matches & errors
 Enums
