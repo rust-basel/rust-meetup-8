@@ -448,7 +448,7 @@ Borrow checker
 let foo = String::from("foo");
 let bar = String::from("bar");
 
-// you an either have many readonly references
+// you can either have many readonly references
 let foo_readonly_ref = &foo;
 let foo_readonly_ref_2 = &foo;
 
