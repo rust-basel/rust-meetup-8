@@ -209,6 +209,18 @@ async fn main(){
 }
 ```
 
+----
+
+closures
+
+```rust
+    let outer_var = 42;
+    
+    // A regular function can't refer to variables in the enclosing environment
+    let closure_annotated = |i: i32| -> i32 { i + outer_var };
+    let closure_inferred  = |i     |          i + outer_var  ;
+```
+
 ---
 
 ## Structs
@@ -429,6 +441,24 @@ fn borrow<'a>(borrowed: &'a Dog) { ... }
 fn borrow(borrowed: &'static Dog) { ... }
 ```
 
+----
+
+Borrow checker
+```rust
+let foo = String::from("foo");
+let bar = String::from("bar");
+
+// you can either have many readonly references
+let foo_readonly_ref = &foo;
+let foo_readonly_ref_2 = &foo;
+
+// or one mutable reference
+let mut bar_mut_ref = &bar;
+
+// the borrow checker enforces this at compile time
+// The borrow checker also works with fat pointer (not covered here)
+```
+
 ---
 ## Enums, matches & errors
 Enums
@@ -438,6 +468,11 @@ enum TrafficLight {
   Green, Yellow, Red, // unit variants
   YellowBlinking(u32), // tuple variant
   OutOfService {description: String}, // struct-like variant
+}
+
+enum Option<T> {
+  Some(T),
+  None
 }
 ```
 ----
